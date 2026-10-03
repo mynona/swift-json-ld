@@ -33,15 +33,43 @@ struct ARDTests {
     @Test("ARD Manifest wraps entries array correctly")
     func testARDManifestSerialization() throws {
         let entry = LDARDEntry(
-            identifier: "urn:air:test.com:mcp:test",
-            displayName: "Test Server",
-            url: "https://test.com/mcp"
+            identifier: "urn:air:raumnebenan.de:mcp:raumnebenan-mcp",
+            displayName: "raumnebenan MCP Server",
+            type: "application/mcp-server-card+json",
+            url: "https://www.raumnebenan.de/mcp",
+            description: "MCP HTTP server for www.raumnebenan.de resource hub focused on actionable product thinking for product owners, product designers, business analysts, product managers, agile coaches, and user researchers.",
+            capabilities: [
+                "list_articles",
+                "list_stories",
+                "list_categories",
+                "search_articles",
+                "get_articles_by_tag",
+                "get_stories_by_category",
+                "get_article_details_by_slugs",
+                "get_article_details_by_uuids"
+            ],
+            representativeQueries: [
+                "what articles are available on product thinking and service design",
+                "show me articles in the foundation and discovery categories",
+                "search for articles about the kano model and empathy map",
+                "summarize published stories"
+            ],
+            tags: [
+                "mcp",
+                "product-thinking",
+                "service-design",
+                "design-thinking",
+                "user-research",
+                "agile",
+                "product-management"
+            ],
+            version: "1.0.0"
         )
         let manifest = LDARDManifest(entries: [entry])
         let json = manifest.pretty
 
         #expect(json.contains("\"entries\" : ["))
-        #expect(json.contains("\"identifier\" : \"urn:air:test.com:mcp:test\""))
+        #expect(json.contains("\"identifier\" : \"urn:air:raumnebenan.de:mcp:raumnebenan-mcp\""))
     }
 }
 

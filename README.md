@@ -316,15 +316,15 @@ Add the route to your Vapor application (e.g. in `routes.swift`):
 
 ```swift
 import Vapor
-import LDJson
+import JsonLD
 
 app.get(".well-known", "ard.json") { req -> Response in
     let mcpEntry = LDARDEntry(
-        identifier: "urn:air:example.com:mcp:example-mcp",
-        displayName: "Example MCP Server",
+        identifier: "urn:air:raumnebenan.de:mcp:raumnebenan-mcp",
+        displayName: "raumnebenan MCP Server",
         type: "application/mcp-server-card+json",
-        url: "https://example.com/mcp",
-        description: "Resource hub and tools focused on actionable product thinking for product owners, designers, and agile teams.",
+        url: "https://www.raumnebenan.de/mcp",
+        description: "MCP HTTP server for www.raumnebenan.de resource hub focused on actionable product thinking for product owners, product designers, business analysts, product managers, agile coaches, and user researchers.",
         capabilities: [
             "list_articles",
             "list_stories",
@@ -345,9 +345,12 @@ app.get(".well-known", "ard.json") { req -> Response in
             "mcp",
             "product-thinking",
             "service-design",
+            "design-thinking",
+            "user-research",
             "agile",
             "product-management"
-        ]
+        ],
+        version: "1.0.0"
     )
 
     let manifest = LDARDManifest(entries: [mcpEntry])
@@ -363,7 +366,6 @@ app.get(".well-known", "ard.json") { req -> Response in
 ##### Output (`/.well-known/ard.json`):
 ```json
 {
-  "@context" : "https://agenticresourcediscovery.org/context/v1",
   "entries" : [
     {
       "@context" : "https://agenticresourcediscovery.org/context/v1",
@@ -377,9 +379,9 @@ app.get(".well-known", "ard.json") { req -> Response in
         "get_article_details_by_slugs",
         "get_article_details_by_uuids"
       ],
-      "description" : "Resource hub and tools focused on actionable product thinking for product owners, designers, and agile teams.",
-      "displayName" : "Example MCP Server",
-      "identifier" : "urn:air:example.com:mcp:example-mcp",
+      "description" : "MCP HTTP server for www.raumnebenan.de resource hub focused on actionable product thinking for product owners, product designers, business analysts, product managers, agile coaches, and user researchers.",
+      "displayName" : "raumnebenan MCP Server",
+      "identifier" : "urn:air:raumnebenan.de:mcp:raumnebenan-mcp",
       "representativeQueries" : [
         "what articles are available on product thinking and service design",
         "show me articles in the foundation and discovery categories",
@@ -390,15 +392,42 @@ app.get(".well-known", "ard.json") { req -> Response in
         "mcp",
         "product-thinking",
         "service-design",
+        "design-thinking",
+        "user-research",
         "agile",
         "product-management"
       ],
       "type" : "application/mcp-server-card+json",
-      "url" : "https://example.com/mcp"
+      "url" : "https://www.raumnebenan.de/mcp",
+      "version" : "1.0.0"
     }
   ]
 }
 ```
+
+#### Validating ARD Manifests (Conformance Testing)
+
+You can validate your generated ARD manifest against the official [ARD Specification](https://github.com/ards-project/ard-spec) using the official conformance CLI tool: [`conformance-test`](https://github.com/ards-project/ard-spec/blob/main/conformance/bin/conformance-test).
+
+##### Method 1: Using the Official Conformance CLI Tool
+
+1. Clone or download the tool from the ARD repository:
+```bash
+git clone https://github.com/ards-project/ard-spec.git
+cd ard-spec
+```
+
+2. Validate your local manifest file:
+```bash
+./conformance/bin/conformance-test manifest path/to/your/ard.json
+```
+
+3. When deployed live on your server, validate the domain resolution directly:
+```bash
+./conformance/bin/conformance-test publisher www.raumnebenan.de
+```
+
+*(This verifies that `https://www.raumnebenan.de/.well-known/ard.json` is served correctly, headers are valid, and all entries comply).*
 
 ---
 
