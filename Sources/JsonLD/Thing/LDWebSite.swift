@@ -1,6 +1,6 @@
 import Foundation
 
-public struct LDWebSite: LDJsonExportable, Sendable {
+public struct LDWebSite: JsonLDExportable, Sendable {
 
    enum CodingKeys: String, CodingKey {
       case url, potentialAction

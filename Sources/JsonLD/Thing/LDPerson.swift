@@ -1,6 +1,6 @@
 import Foundation
 
-public struct LDPerson: LDJsonExportable, Sendable {
+public struct LDPerson: JsonLDExportable, Sendable {
    
    enum CodingKeys: String, CodingKey {
       case name, url, jobTitle, honorificPrefix, sameAs, hasCredential, image, description

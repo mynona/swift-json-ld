@@ -37,7 +37,7 @@ struct GeneratorMain {
 
         // Output directory for generated code
         let projectRoot = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-        let generatedDir = projectRoot.appendingPathComponent("Sources/LDJson/Generated")
+        let generatedDir = projectRoot.appendingPathComponent("Sources/JsonLD/Generated")
         try? FileManager.default.createDirectory(at: generatedDir, withIntermediateDirectories: true)
 
         // Collect all defined types (handwritten + targeted generated types)

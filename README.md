@@ -27,24 +27,24 @@ Manually add the following to your `Package.swift` file:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/mynona/swift-json-ld.git", from: "1.0.0")
+    .package(url: "https://github.com/mynona/swift-json-ld.git", from: "1.0.1")
 ],
 targets: [
     .target(
         name: "MyTarget",
         dependencies: [
-            .product(name: "LDJson", package: "swift-json-ld")
+            .product(name: "JsonLD", package: "swift-json-ld")
         ]
     )
 ]
 ```
 
-*(Note: The package also contains an internal `Generator` executable used solely for updating the schema definitions; only the `LDJson` library product will be linked to your project.)*
+*(Note: The package also contains an internal `Generator` executable used solely for updating the schema definitions; only the `JsonLD` library product will be linked to your project.)*
 
 In your Swift files, import the module:
 
 ```swift
-import LDJson
+import JsonLD
 ```
 
 ---
@@ -53,10 +53,10 @@ import LDJson
 
 ### 1. Schema.org Types
 
-All types conform to `LDJsonExportable` and output formatted, valid JSON-LD through `.pretty`:
+All types conform to `JsonLDExportable` and output formatted, valid JSON-LD through `.pretty`:
 
 ```swift
-import LDJson
+import JsonLD
 
 let organization = LDOrganization(
     name: "Example Corp",
@@ -240,7 +240,7 @@ print(imageMetadata.pretty)
 Render multiple Schema.org entities together for embedding in an HTML `<script type="application/ld+json">` tag:
 
 ```swift
-let jsonBlock = LDJson(data: [
+let jsonBlock = JsonLD(data: [
     organization,
     breadcrumbs
 ])

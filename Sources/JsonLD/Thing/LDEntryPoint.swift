@@ -1,6 +1,6 @@
 import Foundation
 
-public struct LDEntryPoint: LDJsonExportable, Sendable {
+public struct LDEntryPoint: JsonLDExportable, Sendable {
 
    enum CodingKeys: String, CodingKey {
       case urlTemplate

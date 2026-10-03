@@ -10,7 +10,7 @@ extension CodeEmitter {
         import Foundation
 
         /// \(comment)
-        public enum \(enumName): String, LDJsonExportable, Sendable {
+        public enum \(enumName): String, JsonLDExportable, Sendable {
            case \(cleanId.prefix(1).lowercased() + cleanId.dropFirst()) = "\(cleanId)"
         }
         """

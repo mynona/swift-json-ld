@@ -4,7 +4,7 @@ import Foundation
 /// E.g., `author` can be either an `LDPerson` or an `LDOrganization`.
 ///
 /// Marked `indirect` to safely support mutually recursive Schema.org types.
-public indirect enum LDEither<A: Encodable & Sendable, B: Encodable & Sendable>: LDJsonExportable, Sendable {
+public indirect enum LDEither<A: Encodable & Sendable, B: Encodable & Sendable>: JsonLDExportable, Sendable {
    case first(A)
    case second(B)
 

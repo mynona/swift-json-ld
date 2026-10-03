@@ -20,7 +20,7 @@ extension LDAuthor: Encodable {
    }
 }
 
-public struct LDArticle: LDJsonExportable, Sendable {
+public struct LDArticle: JsonLDExportable, Sendable {
 
    enum CodingKeys: String, CodingKey {
       case headline, image, datePublished, dateModified, wordCount, author, isAccessibleForFree, speakable

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct LDSpeakableSpecification: LDJsonExportable, Sendable {
+public struct LDSpeakableSpecification: JsonLDExportable, Sendable {
 
    enum CodingKeys: String, CodingKey {
       case cssSelector

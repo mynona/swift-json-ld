@@ -1,6 +1,6 @@
 import Foundation
 
-public struct LDSearchAction: LDJsonExportable, Sendable {
+public struct LDSearchAction: JsonLDExportable, Sendable {
 
    enum CodingKeys: String, CodingKey {
       case target

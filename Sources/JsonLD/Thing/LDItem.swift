@@ -1,6 +1,6 @@
 import Foundation
 
-public struct LDItem: LDJsonExportable, Sendable {
+public struct LDItem: JsonLDExportable, Sendable {
 
    enum CodingKeys: String, CodingKey {
       case name

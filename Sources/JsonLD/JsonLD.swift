@@ -1,11 +1,11 @@
 import Foundation
 
 
-public struct LDJson: Sendable {
+public struct JsonLD: Sendable {
 
-   public var data: [any LDJsonExportable]
+   public var data: [any JsonLDExportable]
 
-   public init(data: [any LDJsonExportable])
+   public init(data: [any JsonLDExportable])
    {
       self.data = data
    }

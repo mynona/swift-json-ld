@@ -6,7 +6,7 @@ import Foundation
 /// - A plain string / text representation (common in Schema.org when an entity is simplified to its name or URL)
 ///
 /// Marked `indirect` to safely support recursive Schema.org graph definitions (e.g. `LDReview` referencing `LDReview`).
-public indirect enum LDValue<T: Encodable & Sendable>: LDJsonExportable, Sendable {
+public indirect enum LDValue<T: Encodable & Sendable>: JsonLDExportable, Sendable {
    case single(T)
    case multiple([T])
    case text(String)

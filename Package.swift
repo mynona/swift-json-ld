@@ -8,18 +8,18 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "LDJson",
-            targets: ["LDJson"]
+            name: "JsonLD",
+            targets: ["JsonLD"]
         )
     ],
     dependencies: [
     ],
     targets: [
         .target(
-            name: "LDJson",
+            name: "JsonLD",
             dependencies: [
             ],
-            path: "Sources/LDJson",
+            path: "Sources/JsonLD",
             swiftSettings: swiftSettings
         ),
         .executableTarget(
@@ -29,9 +29,9 @@ let package = Package(
             path: "Sources/Generator"
         ),
         .testTarget(
-            name: "LDJsonTests",
+            name: "JsonLDTests",
             dependencies: [
-                "LDJson"
+                "JsonLD"
             ]
         ),
     ]

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct LDBreadcrumbList: LDJsonExportable, Sendable {
+public struct LDBreadcrumbList: JsonLDExportable, Sendable {
 
    enum CodingKeys: String, CodingKey {
       case itemListElement

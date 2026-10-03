@@ -1,6 +1,6 @@
 import Testing
 import Foundation
-@testable import LDJson
+@testable import JsonLD
 
 @Suite("ARD v0.91 Tests")
 struct ARDTests {

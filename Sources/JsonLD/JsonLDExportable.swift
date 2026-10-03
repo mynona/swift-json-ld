@@ -1,10 +1,10 @@
 import Foundation
 
-public protocol LDJsonExportable: Encodable, Sendable {
+public protocol JsonLDExportable: Encodable, Sendable {
    var pretty: String { get }
 }
 
-extension LDJsonExportable {
+extension JsonLDExportable {
 
    public var pretty: String {
       get {

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct LDEducationalOccupationalCredential: LDJsonExportable, Sendable {
+public struct LDEducationalOccupationalCredential: JsonLDExportable, Sendable {
    
    enum CodingKeys: String, CodingKey {
       case name, url, description, recognizedBy

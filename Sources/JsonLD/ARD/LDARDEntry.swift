@@ -2,7 +2,7 @@ import Foundation
 
 /// Represents an ARD (Agentic Resource Discovery) entry per the v0.91 specification.
 /// An ARD entry describes an agentic resource (e.g. MCP Server, A2A Agent, or Skill) as a JSON-LD node.
-public struct LDARDEntry: LDJsonExportable, Sendable {
+public struct LDARDEntry: JsonLDExportable, Sendable {
 
    enum CodingKeys: String, CodingKey {
       case context = "@context"
