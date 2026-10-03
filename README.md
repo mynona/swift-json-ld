@@ -320,35 +320,25 @@ import JsonLD
 
 app.get(".well-known", "ard.json") { req -> Response in
     let mcpEntry = LDARDEntry(
-        identifier: "urn:air:raumnebenan.de:mcp:raumnebenan-mcp",
-        displayName: "raumnebenan MCP Server",
+        identifier: "urn:air:your-website.com:mcp:your-mcp-server",
+        displayName: "Your MCP Server",
         type: "application/mcp-server-card+json",
-        url: "https://www.raumnebenan.de/mcp",
-        description: "MCP HTTP server for www.raumnebenan.de resource hub focused on actionable product thinking for product owners, product designers, business analysts, product managers, agile coaches, and user researchers.",
+        url: "https://www.your-website.com/mcp",
+        description: "MCP HTTP server providing tools and resources for AI agents.",
         capabilities: [
-            "list_articles",
-            "list_stories",
-            "list_categories",
-            "search_articles",
-            "get_articles_by_tag",
-            "get_stories_by_category",
-            "get_article_details_by_slugs",
-            "get_article_details_by_uuids"
+            "list_items",
+            "search_items",
+            "get_item_details"
         ],
         representativeQueries: [
-            "what articles are available on product thinking and service design",
-            "show me articles in the foundation and discovery categories",
-            "search for articles about the kano model and empathy map",
-            "summarize published stories"
+            "what items are available",
+            "search for resources",
+            "summarize content"
         ],
         tags: [
             "mcp",
-            "product-thinking",
-            "service-design",
-            "design-thinking",
-            "user-research",
-            "agile",
-            "product-management"
+            "ai-tools",
+            "resources"
         ],
         version: "1.0.0"
     )
@@ -370,35 +360,25 @@ app.get(".well-known", "ard.json") { req -> Response in
     {
       "@context" : "https://agenticresourcediscovery.org/context/v1",
       "capabilities" : [
-        "list_articles",
-        "list_stories",
-        "list_categories",
-        "search_articles",
-        "get_articles_by_tag",
-        "get_stories_by_category",
-        "get_article_details_by_slugs",
-        "get_article_details_by_uuids"
+        "list_items",
+        "search_items",
+        "get_item_details"
       ],
-      "description" : "MCP HTTP server for www.raumnebenan.de resource hub focused on actionable product thinking for product owners, product designers, business analysts, product managers, agile coaches, and user researchers.",
-      "displayName" : "raumnebenan MCP Server",
-      "identifier" : "urn:air:raumnebenan.de:mcp:raumnebenan-mcp",
+      "description" : "MCP HTTP server providing tools and resources for AI agents.",
+      "displayName" : "Your MCP Server",
+      "identifier" : "urn:air:your-website.com:mcp:your-mcp-server",
       "representativeQueries" : [
-        "what articles are available on product thinking and service design",
-        "show me articles in the foundation and discovery categories",
-        "search for articles about the kano model and empathy map",
-        "summarize published stories"
+        "what items are available",
+        "search for resources",
+        "summarize content"
       ],
       "tags" : [
         "mcp",
-        "product-thinking",
-        "service-design",
-        "design-thinking",
-        "user-research",
-        "agile",
-        "product-management"
+        "ai-tools",
+        "resources"
       ],
       "type" : "application/mcp-server-card+json",
-      "url" : "https://www.raumnebenan.de/mcp",
+      "url" : "https://www.your-website.com/mcp",
       "version" : "1.0.0"
     }
   ]
@@ -424,10 +404,10 @@ cd ard-spec
 
 3. When deployed live on your server, validate the domain resolution directly:
 ```bash
-./conformance/bin/conformance-test publisher www.raumnebenan.de
+./conformance/bin/conformance-test publisher www.your-website.com
 ```
 
-*(This verifies that `https://www.raumnebenan.de/.well-known/ard.json` is served correctly, headers are valid, and all entries comply).*
+*(This verifies that `https://www.your-website.com/.well-known/ard.json` is served correctly, headers are valid, and all entries comply).*
 
 ---
 
