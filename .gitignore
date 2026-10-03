@@ -1,0 +1,17 @@
+Packages
+.build
+xcuserdata
+*.xcodeproj
+DerivedData/
+.DS_Store
+db.sqlite
+.swiftpm
+.env
+docker-compose.yml
+.aws
+.aws/credentials
+Dockerfile
+.dockerignore
+.vscode/
+md/
+
