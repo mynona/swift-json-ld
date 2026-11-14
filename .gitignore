@@ -6,6 +6,7 @@ DerivedData/
 .DS_Store
 db.sqlite
 .swiftpm
+Package.resolved
 .env
 docker-compose.yml
 .aws
